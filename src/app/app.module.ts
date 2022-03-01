@@ -8,7 +8,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './feature/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { MatSliderModule } from '@angular/material/slider';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

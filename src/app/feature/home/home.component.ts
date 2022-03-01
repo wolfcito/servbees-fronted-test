@@ -10,13 +10,13 @@ import { Usuario } from 'src/app/shared/models/usuario.model';
 })
 export class HomeComponent implements OnInit {
 
-  title:String = "ServBees";
-  usuarioValidador:Usuario = {
-    nombre :"",
+  title: String = "ServBees";
+  usuarioValidador: Usuario = {
+    nombre: "",
     clave: ""
   }
-  identificacion=0;
-  status: 'Cargando...'|'Error'| 'Exitoso'|'Inicial' = 'Inicial' ;
+  identificacion = 0;
+  status: 'Cargando...' | 'Error' | 'Exitoso' | 'Inicial' = 'Inicial';
 
   constructor(
     private loginService: LoginService
@@ -25,16 +25,16 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ingresar(){
+  ingresar() {
     this.status = 'Cargando...';
     this.loginService.validarLogin(this.usuarioValidador)
-    .subscribe(data=> {
-      this.identificacion = data;
-      this.status = 'Exitoso';
-    }, response => {
-      console.error(response.error.mensaje )
-      this.status = 'Error';
-    });
+      .subscribe(data => {
+        this.identificacion = data.valor;
+        this.status = 'Exitoso';
+      }, response => {
+        console.error(response.error.mensaje)
+        this.status = 'Error';
+      });
   }
 
 }

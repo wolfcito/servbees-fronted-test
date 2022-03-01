@@ -9,13 +9,13 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
 
-  private apiUrl =  `${environment.API_URL_USUARIO}/usuarios/login`;
+  private apiUrl = `${environment.API_URL_USUARIO}/usuarios/login`;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  validarLogin(data: Usuario){
-    return this.http.post<number>(this.apiUrl, data);
+  validarLogin(data: Usuario) {
+    return this.http.post<any>(this.apiUrl, data);
   }
 }
