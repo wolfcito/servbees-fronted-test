@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/shared/login.service';
 import { Usuario } from 'src/app/shared/models/usuario.model';
 
+import Swal from "sweetalert2";
+
 
 @Component({
   selector: 'app-home',
@@ -31,9 +33,19 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
         this.identificacion = data.valor;
         this.status = 'Exitoso';
+        Swal.fire({
+          icon: 'success',
+          title: `Bienvenido ${this.identificacion}`,
+          showConfirmButton: false,
+          timer: 1500
+        })
       }, response => {
-        console.error(response.error.mensaje)
         this.status = 'Error';
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.error.mensaje,
+        })
       });
   }
 
